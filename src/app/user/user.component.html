@@ -1,9 +1,10 @@
-<div>
-    <button (click)="onSelectUser()" >
-        <img 
+<app-card>
+    <button [class.active]="selected" (click)="onSelectUser()" >
+        <img
             [src]="imagePath"
-            [alt]="name"
+            [alt]="user.name"
         /><!--concatenar dinamic con fix elements-->
-        <span>{{ name }}</span> <!--output dinamic names-->
+        <span>{{ user.name }}</span> <!--output dinamic names-->
     </button>
-</div>
+</app-card>
+

@@ -1,3 +1,19 @@
-<div>
-    <span>{{ name }}</span> <!--output dinamic names-->
-</div>
+@if (isAddingTask) {
+  <app-new-task [userId]="userId" (close)="onCloseTask()"></app-new-task>
+}
+<section id="tasks">
+  <header>
+    <h2>{{ name }}'s Tasks</h2>
+    <menu>
+      <button (click)="onsStartAddTask()">Add Task</button>
+    </menu>
+  </header>
+  <ul>
+    @for (task of selectedUserTasks; track task.id) {
+      <li>
+        <app-task [task]="task"></app-task>
+      </li>
+    }
+  </ul>
+</section>
+
