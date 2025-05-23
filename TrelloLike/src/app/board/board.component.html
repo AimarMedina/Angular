@@ -1,0 +1,14 @@
+<main [class.has-columns]="columns.length !==0" >
+  @if (columns.length !==0) {
+    @for (column of columns; track column.id) {
+      <app-column [title]="column.title" [id]="column.id" (onDelete)="onRemoveColumn(column.id)"></app-column>
+    }
+  }@else {
+    <div class="empty-board">
+      <h2>!Bienvenido a tu panel!</h2>
+      <p>Haz click en el boton de arriba para insertar una nueva columna.</p>
+    </div>
+      <img src="flecha.png" alt="">
+  }
+</main>
+

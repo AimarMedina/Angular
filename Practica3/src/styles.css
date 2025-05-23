@@ -19,11 +19,12 @@ body {
 .falling-icon {
   position: fixed;
   top: -50px;
-  font-size: 24px;
-  animation: fall linear infinite;
+  width: 60px; /* tamaño base, puede variar */
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
   opacity: 0.8;
+  animation: fall linear 10s forwards; /* duración fija 10s y forwards para que se quede al final */
+  transform-origin: center center;
 }
 
 @keyframes fall {
@@ -39,3 +40,4 @@ body {
     opacity: 0;
   }
 }
+

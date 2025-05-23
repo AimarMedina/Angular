@@ -1,0 +1,15 @@
+@if (isAddingColumn) {
+<app-new-column (cancel)="onCancel()"></app-new-column>
+}
+<header>
+  <div class="title">
+    <img src="Trello_icon-icons.webp" alt="" />
+    <h1>Trello Board</h1>
+  </div>
+  <div class="buttons">
+    <button (click)="onAddNewColumn()">Insertar Columna</button>
+    @if (columns.length !== 0) {
+      <button (click)="onAddNewTask()">Añadir Tarea</button>
+    }
+  </div>
+</header>

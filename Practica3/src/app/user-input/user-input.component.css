@@ -3,7 +3,7 @@ form {
   max-width: 30rem;
   margin: 2rem auto;
   border-radius: 4px;
-  background: linear-gradient(180deg, #307e6c, #2b996d);
+  background: radial-gradient( #39953c, #185b40);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
