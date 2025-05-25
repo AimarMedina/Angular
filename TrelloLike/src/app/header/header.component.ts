@@ -25,8 +25,4 @@ export class HeaderComponent {
     return this.columnService.getColumns();
   }
 
-  onAddNewTask(){
-    
-  }
-
 }

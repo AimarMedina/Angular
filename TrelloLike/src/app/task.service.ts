@@ -1,23 +1,43 @@
+import { Injectable } from "@angular/core";
+
+interface Task {
+  id: string;
+  title: string;
+  description: string;
+  columnId: number;
+  date: string;
+  priority: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class TaskService{
-  private tasks: { [key: string]: string[] } = {
-    'To Do': [],
-    'In Progress': [],
-    'Done': []
-  };
+  private tasks: Task[] = [];
 
-  addTask(column: string, task: string) {
-    if (this.tasks[column]) {
-      this.tasks[column].push(task);
-    }
+  addTask(title: string, description: string, columnId: number, priority: string, date: string) {
+    const newTask: Task = {
+      id: this.generateId(),
+      title,
+      description,
+      columnId,
+      date,
+      priority
+    };
+    this.tasks.push(newTask);
   }
 
-  getTasks(column: string): string[] {
-    return this.tasks[column] || [];
+  getTasks(): Task[] {
+    return this.tasks;
   }
 
-  removeTask(column: string, task: string) {
-    if (this.tasks[column]) {
-      this.tasks[column] = this.tasks[column].filter(t => t !== task);
-    }
+  deleteTask(id: string) {
+    this.tasks = this.tasks.filter(task => task.id !== id);
   }
+
+  private generateId(): string {
+    return Math.random().toString(36).substring(2, 15);
+  }
+
 }

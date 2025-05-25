@@ -10,7 +10,7 @@ interface Column {
 })
 
 export class ColumnService {
-  private columnId = 0;
+  private columnId = 1; // Start from 1 for better readability
   private columns: Column[] = [
     { id: this.columnId++, title: 'Por hacer' },
     { id: this.columnId++, title: 'En progreso' },
@@ -32,4 +32,14 @@ export class ColumnService {
     this.columns = this.columns.filter(column => column.id !== id);
   }
 
+  getColumnId(title: string) {
+    const column = this.columns.find(column => column.title === title);
+    return column?.id;
+  }
+
+    private generateId(): string {
+    return Math.random().toString(36).substring(2, 15);
+  }
+
+  
 }

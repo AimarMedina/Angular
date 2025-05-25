@@ -1,7 +1,20 @@
-<article>
-  <h2>{{title}}</h2>
-  <ul>
+@if (isAddingTask) {
+<app-new-task [columnId]="id" (cancel)="onCancel()"></app-new-task>
+}
 
-  </ul>
+<article>
+  <h2>{{ title }}</h2>
+
+  @for (task of tasks; track task.id) {
+  <app-task
+    [title]="task.title"
+    [id]="task.id"
+    [description]="task.description"
+    [columnId]="id"
+    [date]="task.date.toString()"
+    [priority]="task.priority"
+  ></app-task>
+  }
+  <div (click)="onAddTask()" title="Añadir tarea"></div>
   <button (click)="onRemoveColumn()">Borrar columna</button>
 </article>

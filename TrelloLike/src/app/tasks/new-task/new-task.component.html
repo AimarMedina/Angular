@@ -1,1 +1,49 @@
-<p>new-task works!</p>
+<div class="backdrop" (click)="onCancel()"></div>
+<dialog open>
+  <h2>Add Column</h2>
+  <form (ngSubmit)="onAddNewColumn()">
+    <p>
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        required="true"
+        [(ngModel)]="enteredTitle"
+      />
+    </p>
+    <p>
+      <label for="desc">Desripción</label>
+      <textarea
+        id="desc"
+        name="desc"
+        required="true"
+        [(ngModel)]="enteredDescription"
+      ></textarea>
+    </p>
+    <p>
+      <label for="date">Fecha</label>
+      <input
+        type="date"
+        min="date.now()"
+        id="date"
+        name="date"
+        required="true"
+        [(ngModel)]="enteredDate"
+      />
+    </p>
+    <p>
+      <label for="priority">Prioridad</label>
+      <select name="priority" id="priority" [(ngModel)]="enteredPriority">
+        <option value="baja" [selected]="enteredPriority === 'baja'">Baja</option>
+        <option value="media" [selected]="enteredPriority === 'media'">Media</option>
+        <option value="alta" [selected]="enteredPriority === 'alta'">Alta</option>
+      </select>
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="submit" (click)="onAddNewColumn()">Create</button>
+    </p>
+  </form>
+</dialog>

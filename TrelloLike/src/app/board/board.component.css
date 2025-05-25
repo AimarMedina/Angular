@@ -2,11 +2,10 @@ main {
   display: flex;
   flex-wrap: wrap; /* Permite que las columnas se acomoden en varias filas */
   gap: 1rem;
-  padding: 1.5rem;
   margin-top: 10px;
   overflow-x: auto; /* Deslizable horizontalmente en móvil */
-  justify-content: center;
   border-radius: 8px;
+  align-items: flex-start;
 }
 
 /* Opcional: mejora del scroll horizontal en pantallas pequeñas */
@@ -55,12 +54,6 @@ main::-webkit-scrollbar-thumb {
   color: #555;
 }
 
-.has-columns {
-  background-color: #c6a7ff;
-  color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 img {
   position: absolute;
   width: 25%;
@@ -70,6 +63,7 @@ img {
   transition: transform 0.3s ease, filter 0.3s ease;
   filter: brightness(1);
   cursor: pointer;
+  z-index:-1 ;
 }
 
 img:hover {
